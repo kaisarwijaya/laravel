@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-pesbuk
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: php-pesbuk
+  template:
+    metadata:
+      labels:
+        app: php-pesbuk
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: php-pesbuk
+        image: kaisarwijaya/laravel:latest
+        ports:
+          - containerPort: 80
